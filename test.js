@@ -1,7 +1,13 @@
 'use strict';
+
+const fs = require('node:fs');
+// テストの前に永続化されているファイルを消す
+fs.unlinkSync('./tasks.json');
+
 const todo = require('./index.js');
 const assert = require('node:assert');
 const test = require('node:test');
+
 
 test('addとlistのテスト', () => {
   todo.add('ノートを買う');
